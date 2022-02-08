@@ -111,6 +111,4 @@ Deleting a tag
 
 ## Future Updates
 
-<ul>
-  <li>Add, remove, and update values within the tables</li>
-</ul>
+I would love to one day create a web page to interact with the routes. This would sidestep having to use Insomnia to look into data.
