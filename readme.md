@@ -71,7 +71,7 @@ Viewing all products:
 
 ![screenshot](./screenshots/10.png)
 
-Viewing product by ID:
+Viewing a product by ID:
 
 ![screenshot](./screenshots/11.png)
 
@@ -87,9 +87,30 @@ Deleting a product
 
 ![screenshot](./screenshots/14.png)
 
+The tags routes are similar but with the endpoint /api/tags. 
+
+Viewing all tags:
+
+![screenshot](./screenshots/15.png)
+
+Viewing a tag by ID:
+
+![screenshot](./screenshots/16.png)
+
+Creating a tag:
+
+![screenshot](./screenshots/17.png)
+
+Updating a tag by ID:
+
+![screenshot](./screenshots/18.png)
+
+Deleting a tag
+
+![screenshot](./screenshots/19.png)
+
 ## Future Updates
 
 <ul>
   <li>Add, remove, and update values within the tables</li>
 </ul>
-
