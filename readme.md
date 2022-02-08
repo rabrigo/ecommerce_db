@@ -27,7 +27,7 @@ Visit the link at https://ecommerce-bootcamp-hw.herokuapp.com. From there use an
 
 ## Usage
 
-The base URL for our requests will use https://ecommerce-bootcamp-hw.herokuapp.com. For instance,  using a GET request at with the end point /api/categories/ (with the full URL actually being https://ecommerce-bootcamp-hw.herokuapp.com/api/categories/) will show all categories in the database.
+The base URL for our requests is https://ecommerce-bootcamp-hw.herokuapp.com. For instance,  using a GET request at with the end point /api/categories/ (with the full URL actually being https://ecommerce-bootcamp-hw.herokuapp.com/api/categories/) will show all categories in the database.
 
 ![screenshot](./screenshots/2.png)
 
@@ -64,6 +64,28 @@ Here are the databases before with the new category included.
 And then after.
 
 ![screenshot](./screenshots/9.png)
+
+The product routes are similar but with the endpoint /api/product. 
+
+Viewing all products:
+
+![screenshot](./screenshots/10.png)
+
+Viewing product by ID:
+
+![screenshot](./screenshots/11.png)
+
+Creating a product:
+
+![screenshot](./screenshots/12.png)
+
+Updating a product by ID:
+
+![screenshot](./screenshots/13.png)
+
+Deleting a product
+
+![screenshot](./screenshots/14.png)
 
 ## Future Updates
 
