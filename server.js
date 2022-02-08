@@ -1,84 +1,20 @@
-const mysql = require('mysql2');
-// const express = require("express");
-const inquirer = require("inquirer");
-// const { listenerCount } = require('mysql2/typings/mysql/lib/Connection');
-// const app = express();
-const PORT = process.env.PORT || 3000;
+const express = require('express');
+const routes = require('./routes');
+const sequelize = require('./config/connection')
+// import sequelize connection
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'employees_db'
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(routes);
+
+app.get( () => {})
+// sync sequelize models to the database, then turn on the server
+// turn on connection to db and server
+// change force back to true?
+sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => console.log(`Now listening on http://localhost:${PORT}`));
 });
-
-const viewDepartments = () => {
-    db.query(`SELECT * FROM departments`, (err, result) => {
-        if (err) {
-            console.log(err);
-        }
-        console.log(result);
-        viewTables();
-    });
-}
-
-const viewRoles = () => {
-    db.query(`SELECT * FROM roles`, (err, result) => {
-        if (err) {
-            console.log(err);
-        }
-        console.log(result);
-        viewTables();
-    });
-}
-
-const viewEmployees = () => {
-    const query = 
-    `
-SELECT
-employees.id,
-employees.first_name,
-employees.last_name,
-roles.title,
-roles.department_id,
-roles.salary,
-employees.manager_id
-FROM employees
-INNER JOIN roles ON roles.id = employees.role_id
-INNER JOIN departments ON departments.id = roles.department_id;
-    `
-    db.query(query, (err, result) => {
-        if (err) {
-            console.log(err);
-        }
-        console.log(result);
-        viewTables();
-    });
-}
-
-const viewTables = () => {
-    inquirer.prompt([
-        {
-            type: "list",
-            message: "What would you like to do?",
-            choices: ["View departments", "View roles", "View employees", "Exit"],
-            name: "choice"
-        }
-    ]).then((response) => {
-        if (response.choice === "View departments") {
-            viewDepartments();
-        }
-        if (response.choice === "View roles") {
-            viewRoles();
-        }
-        if (response.choice === "View employees") {
-            viewEmployees();
-        }
-        if (response.choice === "Exit") {
-            process.exit(0);
-        }
-    });
-}
-
-console.log("Welcome to the Employee Tracker!");
-viewTables();
