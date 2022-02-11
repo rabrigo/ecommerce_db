@@ -15,6 +15,6 @@ app.get( () => {})
 // sync sequelize models to the database, then turn on the server
 // turn on connection to db and server
 // change force back to true?
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on http://localhost:${PORT}`));
 });
